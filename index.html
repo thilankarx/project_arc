@@ -2,14 +2,27 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Project ARC - Advanced Robotics & Control</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --bg: #0f172a;
+            --surface: #1f2a44;
+            --card: #1f2a44;
+            --muted: #94a3b8;
+            --text: #f1f5fe;
+            --accent: #f97316;
+            --accent-light: #fb923c;
+            --highlight: #22d3ee;
+            --radius: 1rem;
+            --transition: .35s cubic-bezier(.4, .2, .2, 1);
+        }
 
         .font-orbitron {
             font-family: 'Orbitron', monospace;
@@ -27,6 +40,26 @@
             box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
         }
 
+        body {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.35);
+        }
+
         .hero-bg {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
             position: relative;
@@ -41,9 +74,9 @@
             right: 0;
             bottom: 0;
             background-image:
-                radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(251, 146, 60, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(251, 146, 60, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(249, 115, 22, 0.04) 0%, transparent 50%);
         }
 
         .hero-pattern {
@@ -55,17 +88,8 @@
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
-        }
-
         .floating {
-            animation: float 3s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -76,43 +100,50 @@
             }
 
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
         }
 
         .pulse-glow {
-            animation: pulse-glow 2s ease-in-out infinite alternate;
+            animation: pulse-glow 3s ease-in-out infinite alternate;
         }
 
         @keyframes pulse-glow {
             from {
-                box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+                box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
             }
 
             to {
-                box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
+                box-shadow: 0 0 25px rgba(249, 115, 22, 0.5);
             }
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 1.75rem;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -6px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #f97316, #fb923c);
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-light));
+            border-radius: 2px;
         }
 
         .timeline-dot {
             position: absolute;
-            left: -10px;
-            top: 20px;
+            left: -6px;
+            top: 14px;
             width: 12px;
             height: 12px;
-            background: #f97316;
+            background: var(--accent);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+            box-shadow: 0 0 12px rgba(249, 115, 22, 0.5);
+            border: 2px solid var(--bg);
         }
 
         .video-container {
@@ -120,7 +151,6 @@
             width: 100%;
             height: 0;
             padding-bottom: 56.25%;
-            /* 16:9 aspect ratio */
         }
 
         .video-container iframe {
@@ -138,7 +168,7 @@
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             z-index: 10;
         }
 
@@ -154,6 +184,35 @@
 
         .mobile-menu.open {
             transform: translateX(0);
+        }
+
+        .competition-tab {
+            border: none;
+            cursor: pointer;
+            padding: .75rem 1.5rem;
+            border-radius: 999px;
+            font-size: .65rem;
+            letter-spacing: .1em;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            transition: var(--transition);
+        }
+
+        .competition-tab.active {
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            color: white;
+            box-shadow: 0 15px 40px -10px rgba(249, 115, 22, 0.4);
+        }
+
+        .competition-tab.inactive {
+            background: rgba(255, 255, 255, .05);
+            color: var(--muted);
+        }
+
+        a:focus-visible {
+            outline: 2px dashed var(--highlight);
+            outline-offset: 3px;
         }
     </style>
 </head>
@@ -239,31 +298,33 @@
                     <div>
                         <p class="text-lg text-slate-300 mb-6 leading-relaxed">
                             Project ARC is an intensive, hands-on robotics and control systems course designed for
-                            students aged 17 and above who are passionate about the future of technology. Our program
-                            combines cutting-edge theoretical knowledge with practical application.
+                            students aged 17
+                            and above who are passionate about the future of technology. Our program combines
+                            cutting-edge
+                            theoretical knowledge with practical application.
                         </p>
                         <p class="text-lg text-slate-300 mb-8 leading-relaxed">
                             Whether you're interested in mechanical engineering, computer science, or electronics,
-                            Project ARC provides the comprehensive foundation you need to excel in robotics and
-                            automation.
+                            Project ARC
+                            provides the comprehensive foundation you need to excel in robotics and automation.
                         </p>
 
                         <div class="grid md:grid-cols-2 gap-6 mb-8">
-                            <div class="bg-slate-700 p-6 rounded-lg border border-slate-600">
+                            <div class="card">
                                 <h4 class="font-semibold text-lg mb-2 text-amber-400">
                                     <i class="fas fa-clock mr-2"></i>Duration
                                 </h4>
-                                <p class="text-slate-300">12-week intensive program</p>
+                                <p class="text-slate-300">8-week intensive program</p>
                             </div>
-                            <div class="bg-slate-700 p-6 rounded-lg border border-slate-600">
+                            <div class="card">
                                 <h4 class="font-semibold text-lg mb-2 text-orange-400">
                                     <i class="fas fa-users mr-2"></i>Format
                                 </h4>
-                                <p class="text-slate-300">Hybrid (In-person labs + Online theory)</p>
+                                <p class="text-slate-300">In-person : labs</p>
                             </div>
                         </div>
 
-                        <div class="bg-slate-700 p-6 rounded-lg border border-slate-600">
+                        <div class="card">
                             <h4 class="font-semibold text-lg mb-4 text-orange-400">
                                 <i class="fas fa-graduation-cap mr-2"></i>Prerequisites
                             </h4>
@@ -279,18 +340,18 @@
                     </div>
 
                     <div class="space-y-6">
-                        <div class="text-center bg-slate-700 p-8 rounded-xl border border-slate-600 glow-border">
+                        <div class="text-center card glow-border">
                             <i class="fas fa-trophy text-5xl text-yellow-400 mb-4"></i>
                             <h3 class="font-orbitron font-bold text-2xl mb-4">Award-Winning Program</h3>
                             <p class="text-slate-300">Recognized for excellence in STEM education</p>
                         </div>
 
                         <div class="grid grid-cols-2 gap-4 text-center">
-                            <div class="bg-slate-700 p-4 rounded-lg">
+                            <div class="card p-4">
                                 <div class="font-orbitron font-bold text-2xl text-orange-400">500+</div>
                                 <div class="text-slate-300 text-sm">Students Trained</div>
                             </div>
-                            <div class="bg-slate-700 p-4 rounded-lg">
+                            <div class="card p-4">
                                 <div class="font-orbitron font-bold text-2xl text-amber-400">95%</div>
                                 <div class="text-slate-300 text-sm">Job Placement Rate</div>
                             </div>
@@ -308,8 +369,7 @@
                 <h2 class="font-orbitron font-bold text-4xl md:text-5xl text-center mb-16 text-amber-400">What You'll
                     Learn</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover" data-aos="fade-up"
-                        data-aos-delay="100">
+                    <div class="card card-hover" data-aos="fade-up" data-aos-delay="100">
                         <div class="text-center">
                             <i class="fas fa-cogs text-4xl text-orange-500 mb-4"></i>
                             <h3 class="font-semibold text-xl mb-4">Robotics Fundamentals</h3>
@@ -317,8 +377,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover" data-aos="fade-up"
-                        data-aos-delay="200">
+                    <div class="card card-hover" data-aos="fade-up" data-aos-delay="200">
                         <div class="text-center">
                             <i class="fas fa-sliders-h text-4xl text-amber-400 mb-4"></i>
                             <h3 class="font-semibold text-xl mb-4">Control Systems</h3>
@@ -326,8 +385,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover" data-aos="fade-up"
-                        data-aos-delay="300">
+                    <div class="card card-hover" data-aos="fade-up" data-aos-delay="300">
                         <div class="text-center">
                             <i class="fas fa-code text-4xl text-orange-500 mb-4"></i>
                             <h3 class="font-semibold text-xl mb-4">Arduino & Python</h3>
@@ -335,8 +393,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover" data-aos="fade-up"
-                        data-aos-delay="400">
+                    <div class="card card-hover" data-aos="fade-up" data-aos-delay="400">
                         <div class="text-center">
                             <i class="fas fa-microchip text-4xl text-amber-400 mb-4"></i>
                             <h3 class="font-semibold text-xl mb-4">Sensors & Actuators</h3>
@@ -344,8 +401,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover" data-aos="fade-up"
-                        data-aos-delay="500">
+                    <div class="card card-hover" data-aos="fade-up" data-aos-delay="500">
                         <div class="text-center">
                             <i class="fas fa-project-diagram text-4xl text-orange-500 mb-4"></i>
                             <h3 class="font-semibold text-xl mb-4">Project Development</h3>
@@ -353,8 +409,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover" data-aos="fade-up"
-                        data-aos-delay="600">
+                    <div class="card card-hover" data-aos="fade-up" data-aos-delay="600">
                         <div class="text-center">
                             <i class="fas fa-brain text-4xl text-amber-400 mb-4"></i>
                             <h3 class="font-semibold text-xl mb-4">AI Integration</h3>
@@ -373,63 +428,142 @@
                 <h2 class="font-orbitron font-bold text-4xl md:text-5xl text-center mb-16 text-orange-500">Our
                     Experience</h2>
 
-                <!-- Robotics Competitions -->
+                <!-- Robotics Competitions (Tabbed) -->
                 <div class="mb-16">
-                    <h3 class="font-semibold text-3xl mb-8 text-amber-400 text-center">
-                        <i class="fas fa-trophy mr-3"></i>Robotics Competitions
+                    <h3
+                        class="font-semibold text-3xl mb-6 text-amber-400 text-center flex justify-center items-center gap-2">
+                        <i class="fas fa-trophy"></i> Robotics Competitions
                     </h3>
 
-                    <div class="grid lg:grid-cols-2 gap-8">
-                        <!-- Competition Timeline -->
-                        <div class="space-y-8">
-                            <div class="timeline-item relative pl-8 bg-slate-700 p-6 rounded-lg border border-slate-600"
-                                data-aos="fade-right">
-                                <div class="timeline-dot"></div>
-                                <h4 class="font-semibold text-xl mb-2 text-green-400">Singapore AUV Challenge 2018 /
-                                    2019</h4>
-                                <p class="text-slate-300 mb-2">🥇 Autonomous Underwater Navigation | Innovavive Design
-                                    Award</p>
-                                <p class="text-slate-400 text-sm">Singapore | Team of 8 </p>
-                            </div>
+                    <!-- Tab controls -->
+                    <div class="flex justify-center mb-8 space-x-4" data-aos="fade-up">
+                        <button class="competition-tab active" data-target="international">International</button>
+                        <button class="competition-tab inactive" data-target="local">Local</button>
+                    </div>
 
-                            <div class="timeline-item relative pl-8 bg-slate-700 p-6 rounded-lg border border-slate-600"
-                                data-aos="fade-right" data-aos-delay="100">
-                                <div class="timeline-dot"></div>
-                                <h4 class="font-semibold text-xl mb-2 text-blue-400">ROBOCON 2017 / 2018 </h4>
-                                <p class="text-slate-300 mb-2">🥈 Autonomous Control</p>
-                                <p class="text-slate-400 text-sm"></p>
-                            </div>
+                    <!-- Tab content -->
+                    <div class="relative">
+                        <!-- International -->
+                        <div id="international" class="competition-content grid lg:grid-cols-1 gap-8">
+                            <div class="space-y-5">
+                                <div class="card timeline-item" data-aos="fade-right">
+                                    <div class="timeline-dot"></div>
+                                    <h5 class="font-semibold text-xl mb-1 text-green-400">Singapore AUV Challenge 2018 /
+                                        2019</h5>
+                                    <p class="text-slate-300 mb-1">🥇 6th place globally | Innovavive Design Award</p>
+                                    <p class="text-slate-400 text-sm">Singapore · Team of 8</p>
+                                </div>
 
-                            <div class="timeline-item relative pl-8 bg-slate-700 p-6 rounded-lg border border-slate-600"
-                                data-aos="fade-right" data-aos-delay="200">
-                                <div class="timeline-dot"></div>
-                                <h4 class="font-semibold text-xl mb-2 text-green-400">CHINA AGRICULTURAL ROBOT
-                                    COMPETITION 2018 / 2019</h4>
-                                <p class="text-slate-300 mb-2">🏆 1st runners-up</p>
-                                <p class="text-slate-400 text-sm"></p>
+                                <div class="card timeline-item" data-aos="fade-right" data-aos-delay="100">
+                                    <div class="timeline-dot"></div>
+                                    <h5 class="font-semibold text-xl mb-1 text-blue-400">ROBOCON 2017 / 2018</h5>
+                                    <p class="text-slate-300 mb-1">🥈 Autonomous Control Excellence</p>
+                                    <p class="text-slate-400 text-sm">International collaboration and benchmarking</p>
+                                </div>
+
+                                <div class="card timeline-item" data-aos="fade-right" data-aos-delay="200">
+                                    <div class="timeline-dot"></div>
+                                    <h5 class="font-semibold text-xl mb-1 text-green-400">China Agricultural Robot
+                                        Competition 2018 / 2019</h5>
+                                    <p class="text-slate-300 mb-1">🏆 1st runners-up</p>
+                                    <p class="text-slate-400 text-sm">Field automation focus</p>
+                                </div>
                             </div>
+                            <!-- Video/highlight block -->
+                            <!-- <div class="flex items-start">
+                                <div class="card w-full">
+                                    <h4 class="font-semibold text-lg mb-4 text-center">Highlights</h4>
+                                    <div class="video-container mb-2">
+                                        <iframe width="560" height="315"
+                                            src="https://www.youtube.com/embed/jUm5RS3iorQ?si=3kTkaTJGm3_2dG7A"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="text-slate-300 text-sm text-center">International competition highlights
+                                        and
+                                        achievements</p>
+                                </div>
+                            </div> -->
                         </div>
 
-                        <!-- Competition Video -->
-                        <div data-aos="fade-left">
-                            <div class="bg-slate-700 p-6 rounded-xl border border-slate-600">
-                                <h4 class="font-semibold text-lg mb-4 text-center">Highlights</h4>
-                                <div class="video-container">
-                                    <!-- <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                        title="Project ARC Competition Highlights" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                    </iframe> -->
-                                    <iframe width="560" height="315"
-                                        src="https://www.youtube.com/embed/jUm5RS3iorQ?si=3kTkaTJGm3_2dG7A"
-                                        title="YouTube video player" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <!-- Local (hidden by default) -->
+                        <div id="local" class="competition-content grid lg:grid-cols-1 gap-8 hidden">
+                            <div class="space-y-5">
+                                <div class="card timeline-item" data-aos="fade-right">
+                                    <div class="timeline-dot"></div>
+                                    <h5 class="font-semibold text-xl mb-1 text-yellow-400">IEEE Electronic circuit
+                                        design competition 2018</h5>
+                                    <p class="text-slate-300 mb-1">🥇 1st Place </p>
+                                    <p class="text-slate-400 text-sm">University-level level</p>
                                 </div>
-                                <p class="text-slate-300 text-sm mt-4 text-center"></p>
+
+                                <div class="card timeline-item" data-aos="fade-right" data-aos-delay="100">
+                                    <div class="timeline-dot"></div>
+                                    <h5 class="font-semibold text-xl mb-1 text-green-400"> Sri Lankan Robotics Challenge
+                                        (SLRC) 2018 </h5>
+                                    <p class="text-slate-300 mb-1">🥈 2nd Place</p>
+                                    <p class="text-slate-400 text-sm">University-level showcase</p>
+                                </div>
+
+                                <div class="card timeline-item" data-aos="fade-right" data-aos-delay="200">
+                                    <div class="timeline-dot"></div>
+                                    <h5 class="font-semibold text-xl mb-1 text-orange-400"> XbotiX 2018 </h5>
+                                    <p class="text-slate-300 mb-1">🏆 3rd Place</p>
+                                    <p class="text-slate-400 text-sm">University-level showcase</p>
+                                </div>
+
+                                <div class="card timeline-item" data-aos="fade-right" data-aos-delay="200">
+                                    <div class="timeline-dot"></div>
+                                    <h5 class="font-semibold text-xl mb-1 text-orange-400"> UWU ROBOT BATTLE 2018 </h5>
+                                    <p class="text-slate-300 mb-1">🏆 2nd Place</p>
+                                    <p class="text-slate-400 text-sm">University-level showcase</p>
+                                </div>
                             </div>
+                            <!-- <div class="flex items-start">
+                                <div class="card w-full">
+                                    <h4 class="font-semibold text-lg mb-4 text-center">Local Highlights</h4>
+                                    <p class="text-slate-300 text-sm text-center mb-4">Showcasing regional competition
+                                        excellence and
+                                        grassroots impact.</p>
+                                    <div class="flex gap-2">
+                                        <div class="flex-1 bg-slate-700 rounded-lg p-3 text-center">
+                                            <div class="font-bold text-lg text-yellow-400">Regional Reach</div>
+                                            <div class="text-slate-300 text-xs">Engaged schools and universities across
+                                                Sri Lanka.</div>
+                                        </div>
+                                        <div class="flex-1 bg-slate-700 rounded-lg p-3 text-center">
+                                            <div class="font-bold text-lg text-green-400">Skill Development</div>
+                                            <div class="text-slate-300 text-xs">Hands-on robotics training scaled
+                                                locally.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
+
+                    <!-- Tab switching script -->
+                    <script>
+                        document.querySelectorAll('.competition-tab').forEach(btn => {
+                            btn.addEventListener('click', () => {
+                                const target = btn.dataset.target;
+                                document.querySelectorAll('.competition-content').forEach(c => c.classList.add('hidden'));
+                                document.getElementById(target).classList.remove('hidden');
+                                document.querySelectorAll('.competition-tab').forEach(b => {
+                                    if (b === btn) {
+                                        b.classList.remove('inactive');
+                                        b.classList.add('active');
+                                    } else {
+                                        b.classList.remove('active');
+                                        b.classList.add('inactive');
+                                    }
+                                });
+                            });
+                        });
+                        // initialize first tab active
+                        document.querySelector('.competition-tab[data-target="international"]').click();
+                    </script>
                 </div>
 
                 <!-- Industrial Projects -->
@@ -439,56 +573,53 @@
                     </h3>
 
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="bg-slate-700 p-6 rounded-xl border border-slate-600 card-hover" data-aos="fade-up">
+                        <div class="card card-hover" data-aos="fade-up">
                             <div class="mb-4">
-                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop"
-                                    alt="Autonomous Drone System" class="w-full h-48 object-cover rounded-lg">
+                                <img src="https://www.orise.lk/assets/images/projects/projects/robotic/stringing_drone/stringing_drone.png"
+                                    alt="Drone System" class="w-full h-48 object-cover rounded-lg">
                             </div>
                             <h4 class="font-semibold text-lg mb-2 text-green-400">Autonomous Drone System</h4>
-                            <p class="text-slate-300 text-sm mb-4">Developed for agricultural monitoring and
-                                surveillance applications</p>
+                            <p class="text-slate-300 text-sm mb-4">Developed for High tention Powerline Pilotcable
+                                Stringing
+                                applications</p>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Drone Project Demo"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                                <iframe width="800" height="450" src="https://www.youtube.com/embed/jPB11HSTu1s"
+                                    title="High Tension Transmission Line Pilot Cable Stringing" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
 
-                        <div class="bg-slate-700 p-6 rounded-xl border border-slate-600 card-hover" data-aos="fade-up"
-                            data-aos-delay="100">
+                        <div class="card card-hover" data-aos="fade-up" data-aos-delay="100">
                             <div class="mb-4">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
+                                <img src="/assets/images/uw.jpg"
                                     alt="Smart Factory Automation" class="w-full h-48 object-cover rounded-lg">
                             </div>
-                            <h4 class="font-semibold text-lg mb-2 text-blue-400">Smart Factory Automation</h4>
-                            <p class="text-slate-300 text-sm mb-4">IoT-enabled production line optimization for
-                                manufacturing</p>
+                            <h4 class="font-semibold text-lg mb-2 text-blue-400">Underwater Robotics</h4>
+                            <p class="text-slate-300 text-sm mb-4">Semi Autonomous Intelligent Underwater Platform</p>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Factory Automation Demo"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                                <iframe width="560" height="315"
+                                    src="https://www.youtube.com/embed/jUm5RS3iorQ?si=3kTkaTJGm3_2dG7A"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
 
-                        <div class="bg-slate-700 p-6 rounded-xl border border-slate-600 card-hover" data-aos="fade-up"
-                            data-aos-delay="200">
+                        <div class="card card-hover" data-aos="fade-up" data-aos-delay="200">
                             <div class="mb-4">
-                                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=250&fit=crop"
-                                    alt="Medical Robotics Research" class="w-full h-48 object-cover rounded-lg">
+                                <img src="./assets/images/covid_r_1.png" alt="Medical Robotics Research"
+                                    class="w-full h-48 object-cover rounded-lg">
                             </div>
-                            <h4 class="font-semibold text-lg mb-2 text-green-400">Medical Robotics Research</h4>
-                            <p class="text-slate-300 text-sm mb-4">Collaborative research with local hospitals on
-                                surgical robotics</p>
+                            <h4 class="font-semibold text-lg mb-2 text-green-400">Medical Robotics</h4>
+                            <p class="text-slate-300 text-sm mb-4">Semi Autonomous Mobile Robot Platform for Patient
+                                Monitoring</p>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                    title="Medical Robotics Research" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                                <iframe width="560" height="315"
+                                    src="https://www.youtube.com/embed/2fLAOixPJL4?si=pMNNQYTWD54JfbHO"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -505,7 +636,7 @@
                     Highlights</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover h-full">
+                        <div class="card h-full">
                             <i class="fas fa-flask text-5xl text-green-400 mb-6"></i>
                             <h3 class="font-semibold text-xl mb-4">Hands-on Labs</h3>
                             <p class="text-slate-300 leading-relaxed">
@@ -515,7 +646,7 @@
                     </div>
 
                     <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover h-full">
+                        <div class="card h-full">
                             <i class="fas fa-rocket text-5xl text-blue-400 mb-6"></i>
                             <h3 class="font-semibold text-xl mb-4">Demo Day</h3>
                             <p class="text-slate-300 leading-relaxed">
@@ -525,7 +656,7 @@
                     </div>
 
                     <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover h-full">
+                        <div class="card h-full">
                             <i class="fas fa-users text-5xl text-green-400 mb-6"></i>
                             <h3 class="font-semibold text-xl mb-4">Expert Mentorship</h3>
                             <p class="text-slate-300 leading-relaxed">
@@ -535,7 +666,7 @@
                     </div>
 
                     <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 card-hover h-full">
+                        <div class="card h-full">
                             <i class="fas fa-tools text-5xl text-blue-400 mb-6"></i>
                             <h3 class="font-semibold text-xl mb-4">Lab Access</h3>
                             <p class="text-slate-300 leading-relaxed">
@@ -593,27 +724,25 @@
 
                 <!-- Featured Videos -->
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-slate-700 p-6 rounded-xl border border-slate-600" data-aos="fade-right">
+                    <div class="card" data-aos="fade-right">
                         <h4 class="font-semibold text-xl mb-4 text-center text-green-400">Student Success Stories</h4>
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Student Success Stories"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
+                                allowfullscreen></iframe>
                         </div>
                         <p class="text-slate-300 text-sm mt-4 text-center">Hear from our graduates about their journey
                         </p>
                     </div>
 
-                    <div class="bg-slate-700 p-6 rounded-xl border border-slate-600" data-aos="fade-left">
+                    <div class="card" data-aos="fade-left">
                         <h4 class="font-semibold text-xl mb-4 text-center text-blue-400">Behind the Scenes</h4>
                         <div class="video-container">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                                 title="Behind the Scenes at Project ARC" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
+                                allowfullscreen></iframe>
                         </div>
                         <p class="text-slate-300 text-sm mt-4 text-center">Take a tour of our facilities and labs</p>
                     </div>
@@ -633,17 +762,17 @@
                 </p>
 
                 <div class="grid md:grid-cols-3 gap-6 mb-12">
-                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                    <div class="card">
                         <i class="fas fa-calendar text-3xl text-green-400 mb-3"></i>
                         <h4 class="font-semibold text-lg mb-2">Next Intake</h4>
                         <p class="text-slate-300">September 2025</p>
                     </div>
-                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                    <div class="card">
                         <i class="fas fa-users text-3xl text-blue-400 mb-3"></i>
                         <h4 class="font-semibold text-lg mb-2">Class Size</h4>
                         <p class="text-slate-300">Max 20 students</p>
                     </div>
-                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                    <div class="card">
                         <i class="fas fa-tag text-3xl text-green-400 mb-3"></i>
                         <h4 class="font-semibold text-lg mb-2">Early Bird</h4>
                         <p class="text-slate-300">20% discount until June</p>
@@ -656,8 +785,8 @@
                 </a>
 
                 <p class="text-sm text-slate-400">
-                    Questions? Contact us at <a href="mailto:info@projectarc.edu"
-                        class="text-green-400 hover:underline">info@projectarc.edu</a>
+                    Questions? Contact us at <a href="mailto:info@projectarc.space"
+                        class="text-green-400 hover:underline">info@projectarc.space</a>
                 </p>
             </div>
         </div>
@@ -674,7 +803,8 @@
                     </div>
                     <p class="text-slate-300 mb-6 max-w-md">
                         Shaping the next generation of robotics innovators through hands-on learning, expert mentorship,
-                        and cutting-edge technology.
+                        and
+                        cutting-edge technology.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-slate-400 hover:text-green-400 transition-colors">
@@ -701,7 +831,7 @@
                         <div class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-green-400 w-5"></i>
                             <a href="mailto:info@projectarc.edu"
-                                class="hover:text-green-400 transition-colors">info@projectarc.edu</a>
+                                class="hover:text-green-400 transition-colors">info@projectarc.space</a>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-phone mr-3 text-green-400 w-5"></i>
@@ -715,7 +845,7 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-map-marker-alt mr-3 text-green-400 w-5"></i>
-                            <span>Tech Hub, Innovation District</span>
+                            <span>Innovator Park, Kandy</span>
                         </div>
                     </div>
                 </div>
@@ -815,22 +945,20 @@
         const galleryItems = document.querySelectorAll('.gallery-item img');
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
-                // Create a simple modal for viewing images
                 const modal = document.createElement('div');
                 modal.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4';
                 modal.innerHTML = `
-                    <div class="relative max-w-4xl max-h-full">
-                        <img src="${item.src}" alt="${item.alt}" class="max-w-full max-h-full object-contain rounded-lg">
-                        <button class="absolute top-4 right-4 text-white text-2xl hover:text-green-400 transition-colors">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                `;
+          <div class="relative max-w-4xl max-h-full">
+            <img src="${item.src}" alt="${item.alt}" class="max-w-full max-h-full object-contain rounded-lg">
+            <button class="absolute top-4 right-4 text-white text-2xl hover:text-green-400 transition-colors">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        `;
 
                 document.body.appendChild(modal);
                 document.body.style.overflow = 'hidden';
 
-                // Close modal functionality
                 const closeBtn = modal.querySelector('button');
                 const closeModal = () => {
                     document.body.removeChild(modal);
@@ -842,7 +970,6 @@
                     if (e.target === modal) closeModal();
                 });
 
-                // ESC key to close
                 document.addEventListener('keydown', function escHandler(e) {
                     if (e.key === 'Escape') {
                         closeModal();
@@ -852,7 +979,7 @@
             });
         });
 
-        // Add parallax effect to hero section
+        // Parallax effect for hero
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero-bg');
@@ -861,13 +988,12 @@
             }
         });
 
-        // Typing effect for hero tagline (optional enhancement)
+        // Typing effect for hero tagline
         const tagline = document.querySelector('.hero-bg p');
         if (tagline) {
             const text = tagline.textContent;
             tagline.textContent = '';
             let i = 0;
-
             setTimeout(() => {
                 const typeWriter = () => {
                     if (i < text.length) {
