@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROJECT ARC: Forge the Future of Robotics - Elite Workshop</title>
+    <meta name="description"
+        content="Join Project ARC - An elite one-day workshop on advanced robotics & control systems. Limited to 30 seats. August 23, 2025 in Kandy." />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="PROJECT ARC: Forge the Future of Robotics" />
+    <meta property="og:description"
+        content="Elite workshop on advanced robotics & control systems. Limited to 30 seats." />
+    <meta property="og:type" content="event" />
+    <meta property="og:image" content="/og-image-placeholder.jpg" />
+
+    <!-- Favicon / Logo -->
+    <link rel="icon" type="image/svg+xml" href="./assets/images/logo_1.png" />
+    <link rel="alternate icon" href="./assets/images/logo_1.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/logo_1.png" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'arc-navy': '#0a192f',
+                        'arc-blue': '#00d4ff',
+                        'arc-green': '#00ff88',
+                        'arc-dark': '#020c1b',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #0a192f 0%, #020c1b 100%);
+        }
+
+        .card-glow {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card-glow:hover {
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cta-glow {
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .cta-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* Accordion FAQ */
+        .faq-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-summary {
+            cursor: pointer;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .faq-summary::after {
+            content: "+";
+            position: absolute;
+            right: 0;
+            font-size: 1.25rem;
+            transition: transform .2s ease;
+        }
+
+        details[open] .faq-summary::after {
+            content: "–";
+            transform: rotate(0deg);
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "PROJECT ARC: Forge the Future of Robotics",
+      "description": "Elite workshop on advanced robotics and control systems",
+      "startDate": "2025-08-23T09:00+05:30",
+      "endDate": "2025-08-23T17:30+05:30",
+      "location": {
+        "@type": "Place",
+        "name": "Kandy Innovator Park",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kandy",
+          "addressCountry": "LK"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Project ARC"
+      },
+      "maximumAttendeeCapacity": 30,
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+    }
+  </script>
+</head>
+
+<body class="bg-arc-dark text-white overflow-x-hidden">
+
+    <!-- Sticky CTA -->
+    <div id="sticky-cta"
+        class="fixed top-0 left-0 right-0 z-50 bg-arc-dark/95 backdrop-blur-sm transform -translate-y-full transition-transform duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="./assets/images/logo_1.png" alt="Project ARC logo" class="h-8 w-auto"
+                    onerror="this.src='./assets/images/logo_1.png'">
+                <p class="text-sm md:text-base">
+                    <span class="text-arc-blue font-semibold">PROJECT ARC</span> |
+                    <span class="text-arc-green">30 Seats Only</span>
+                </p>
+            </div>
+            <a href="https://forms.gle/RPGErpQM4mWepsdT8" target="_blank" rel="noopener"
+                class="inline-block bg-arc-green text-arc-dark px-8 py-4 rounded-full font-bold text-lg cta-glow hover:bg-white transition-all">
+                Reserve Your Seat
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center relative">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-arc-blue rounded-full filter blur-3xl animate-pulse-slow">
+            </div>
+            <div
+                class="absolute bottom-20 right-10 w-96 h-96 bg-arc-green rounded-full filter blur-3xl animate-pulse-slow">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <img src="./assets/images/logo_1.png" alt="Project ARC full logo" class="w-[150px] object-cover rounded-lg"
+                        onerror="this.src='./assets/images/logo_1.png'">
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-4 animate-float">
+                    PROJECT <span class="gradient-text">ARC</span>
+                </h1>
+                <h2 class="text-2xl md:text-4xl font-bold mb-6">
+                    Forge the Future of Robotics
+                </h2>
+                <p class="text-lg md:text-xl text-gray-300 mb-8">
+                    An Elite Workshop on Advanced Robotics & Control Systems
+                </p>
+
+                <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-12">
+                    <div class="bg-arc-navy/50 backdrop-blur-sm px-6 py-3 rounded-lg border border-arc-blue/30">
+                        <p class="text-arc-blue font-semibold">August 23, 2025</p>
+                        <p class="text-sm text-gray-400">9:00 AM – 5:30 PM (Asia/Colombo)</p>
+                    </div>
+                    <div class="bg-arc-navy/50 backdrop-blur-sm px-6 py-3 rounded-lg border border-arc-green/30">
+                        <p class="text-arc-green font-semibold">Kandy Innovator Park</p>
+                        <p class="text-sm text-gray-400">Seats: Strictly Limited to 30</p>
+                    </div>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="mb-12">
+                    <p class="text-sm text-gray-400 mb-3">Workshop begins in:</p>
+                    <div id="countdown" class="flex gap-4 justify-center">
+                        <div class="bg-arc-navy/50 backdrop-blur-sm px-4 py-3 rounded-lg border border-arc-blue/30">
+                            <div class="text-2xl md:text-3xl font-bold text-arc-blue" id="days">00</div>
+                            <p class="text-xs text-gray-400">DAYS</p>
+                        </div>
+                        <div class="bg-arc-navy/50 backdrop-blur-sm px-4 py-3 rounded-lg border border-arc-blue/30">
+                            <div class="text-2xl md:text-3xl font-bold text-arc-blue" id="hours">00</div>
+                            <p class="text-xs text-gray-400">HOURS</p>
+                        </div>
+                        <div class="bg-arc-navy/50 backdrop-blur-sm px-4 py-3 rounded-lg border border-arc-blue/30">
+                            <div class="text-2xl md:text-3xl font-bold text-arc-blue" id="minutes">00</div>
+                            <p class="text-xs text-gray-400">MINUTES</p>
+                        </div>
+                        <div class="bg-arc-navy/50 backdrop-blur-sm px-4 py-3 rounded-lg border border-arc-blue/30">
+                            <div class="text-2xl md:text-3xl font-bold text-arc-blue" id="seconds">00</div>
+                            <p class="text-xs text-gray-400">SECONDS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://forms.gle/RPGErpQM4mWepsdT8" target="_blank" rel="noopener"
+                        class="bg-arc-green text-arc-dark px-8 py-4 rounded-full font-bold text-lg cta-glow hover:bg-white transition-all">
+                        Reserve Your Seat
+                    </a>
+                    <a href="#why-matters"
+                        class="bg-transparent border-2 border-arc-blue text-arc-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-arc-blue hover:text-white transition-all">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Matters / Core Value Props -->
+    <section id="why-matters" class="py-20 scroll-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Why This Matters</h2>
+                <p class="text-2xl md:text-3xl gradient-text font-bold">Stop Dreaming. Start Building.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20 card-glow">
+                    <div class="text-arc-blue text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-2">Expert Mentorship</h3>
+                    <p class="text-gray-300">Learn from champions of Singapore AUV Challenge, ROBOCON, and China
+                        Agricultural Robotics Competition</p>
+                </div>
+                <div class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20 card-glow">
+                    <div class="text-arc-blue text-4xl mb-4">🔧</div>
+                    <h3 class="text-xl font-bold mb-2">Hands-On Labs</h3>
+                    <p class="text-gray-300">Build, program, and optimize real robots with provided kits and tools</p>
+                </div>
+                <div class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20 card-glow">
+                    <div class="text-arc-blue text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-2">Live Demos</h3>
+                    <p class="text-gray-300">Witness cutting-edge robotics in action and understand the principles
+                        behind them</p>
+                </div>
+                <div class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20 card-glow">
+                    <div class="text-arc-blue text-4xl mb-4">🏆</div>
+                    <h3 class="text-xl font-bold mb-2">Certificate</h3>
+                    <p class="text-gray-300">Earn a prestigious certificate that validates your advanced robotics skills
+                    </p>
+                </div>
+                <div class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20 card-glow">
+                    <div class="text-arc-blue text-4xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-2">Elite Network</h3>
+                    <p class="text-gray-300">Connect with like-minded innovators and industry professionals</p>
+                </div>
+                <div class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20 card-glow">
+                    <div class="text-arc-blue text-4xl mb-4">💡</div>
+                    <h3 class="text-xl font-bold mb-2">Real-World Skills</h3>
+                    <p class="text-gray-300">Master control systems that power autonomous vehicles and industrial robots
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Challenge -->
+    <section class="py-20 bg-arc-navy/20 scroll-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Your Mission: The Line Follower Sprint Challenge</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Design, build, and optimize a line-following robot that pushes the boundaries of speed and precision
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-arc-blue/20 rounded-full flex items-center justify-center">
+                        <svg class="w-12 h-12 text-arc-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-arc-blue">Go Beyond Bang-Bang</h3>
+                    <p class="text-gray-300">Master PID control and advanced algorithms for smooth, precise tracking</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-arc-green/20 rounded-full flex items-center justify-center">
+                        <svg class="w-12 h-12 text-arc-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-arc-green">Master Your Sensors</h3>
+                    <p class="text-gray-300">Optimize sensor arrays and signal processing for maximum performance</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-arc-blue/20 rounded-full flex items-center justify-center">
+                        <svg class="w-12 h-12 text-arc-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-arc-blue">Engineer Solutions</h3>
+                    <p class="text-gray-300">Apply real-world engineering principles to solve complex control challenges
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agenda -->
+    <section class="py-20 scroll-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Workshop Agenda</h2>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-arc-navy/30 backdrop-blur-sm rounded-xl p-6 border border-arc-blue/20">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-arc-blue">Morning Session</h3>
+                        <span class="text-gray-400">9:00 AM - 12:30 PM</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-300 list-disc list-inside">
+                        <li>Welcome & Introduction to Advanced Robotics</li>
+                        <li>Control Theory Fundamentals: From Bang-Bang to PID</li>
+                        <li>Sensor Systems & Signal Processing Workshop</li>
+                        <li>Hands-On: Building Your Competition Robot</li>
+                    </ul>
+                </div>
+
+                <div class="bg-arc-navy/30 backdrop-blur-sm rounded-xl p-6 border border-arc-green/20">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-arc-green">Afternoon Session</h3>
+                        <span class="text-gray-400">1:30 PM - 4:00 PM</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-300 list-disc list-inside">
+                        <li>Advanced Programming Techniques</li>
+                        <li>Optimization Strategies for Speed & Precision</li>
+                        <li>The Line Follower Sprint Challenge</li>
+                        <li>Real-World Applications Demo</li>
+                    </ul>
+                </div>
+
+                <div class="bg-arc-navy/30 backdrop-blur-sm rounded-xl p-6 border border-arc-blue/20">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-arc-blue">Evening Session</h3>
+                        <span class="text-gray-400">4:00 PM - 5:30 PM</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-300 list-disc list-inside">
+                        <li>Industry Insights & Career Pathways</li>
+                        <li>Networking & Collaboration Session</li>
+                        <li>Certificate Ceremony</li>
+                        <li>Closing Remarks & Next Steps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Should Attend -->
+    <section class="py-20 bg-arc-navy/20 scroll-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Who Should Attend</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div
+                    class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20 text-center card-glow">
+                    <div class="text-4xl mb-4">🎓</div>
+                    <h3 class="text-xl font-bold mb-2">University Undergraduates</h3>
+                    <p class="text-gray-300">Engineering, CS, and tech students ready to go beyond the classroom</p>
+                </div>
+                <div
+                    class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-green/20 text-center card-glow">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h3 class="text-xl font-bold mb-2">Pre-University Students</h3>
+                    <p class="text-gray-300">Ambitious A/L students exploring advanced STEM careers</p>
+                </div>
+                <div
+                    class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20 text-center card-glow">
+                    <div class="text-4xl mb-4">🛠️</div>
+                    <h3 class="text-xl font-bold mb-2">Hobbyists & Makers</h3>
+                    <p class="text-gray-300">DIY enthusiasts ready to level up their robotics skills</p>
+                </div>
+                <div
+                    class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-green/20 text-center card-glow">
+                    <div class="text-4xl mb-4">💼</div>
+                    <h3 class="text-xl font-bold mb-2">Industry Professionals</h3>
+                    <p class="text-gray-300">Engineers seeking cutting-edge control systems knowledge</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshop Logistics -->
+    <section class="py-20 scroll-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Workshop Logistics</h2>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-arc-navy/30 backdrop-blur-sm p-8 rounded-xl border border-arc-blue/20">
+                    <h3 class="text-2xl font-bold mb-6 text-arc-blue">What to Bring</h3>
+                    <ul class="space-y-3 list-disc list-inside text-gray-300">
+                        <li><span class="text-arc-blue">▸</span> Laptop with Arduino IDE pre-installed</li>
+                        <li><span class="text-arc-blue">▸</span> Your curiosity and passion for robotics</li>
+                        <li><span class="text-arc-blue">▸</span> Note-taking materials</li>
+                        <li><span class="text-arc-blue">▸</span> Water bottle and snacks</li>
+                    </ul>
+                </div>
+
+                <div class="bg-arc-navy/30 backdrop-blur-sm p-8 rounded-xl border border-arc-green/20">
+                    <h3 class="text-2xl font-bold mb-6 text-arc-green">What We Provide</h3>
+                    <ul class="space-y-3 list-disc list-inside text-gray-300">
+                        <li><span class="text-arc-green">✓</span> Complete robotics kit for hands-on learning</li>
+                        <li><span class="text-arc-green">✓</span> Expert mentorship from industry champions</li>
+                        <li><span class="text-arc-green">✓</span> Workshop materials and resources</li>
+                        <li><span class="text-arc-green">✓</span> Certificate of completion</li>
+                        <li><span class="text-arc-green">✓</span> Lunch and refreshments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits -->
+    <section class="py-20 bg-arc-navy/20 scroll-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Transform Your Future</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div
+                    class="bg-gradient-to-br from-arc-blue/20 to-arc-navy/30 p-6 rounded-xl border border-arc-blue/30 text-center">
+                    <div class="text-5xl mb-4">🌐</div>
+                    <h3 class="text-xl font-bold mb-2">Elite Network</h3>
+                    <p class="text-gray-300">Join a community of 30 future robotics leaders</p>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-arc-green/20 to-arc-navy/30 p-6 rounded-xl border border-arc-green/30 text-center">
+                    <div class="text-5xl mb-4">📜</div>
+                    <h3 class="text-xl font-bold mb-2">Powerful Certificate</h3>
+                    <p class="text-gray-300">Stand out in university applications and job interviews</p>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-arc-blue/20 to-arc-navy/30 p-6 rounded-xl border border-arc-blue/30 text-center">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2">Real-World Skills</h3>
+                    <p class="text-gray-300">Master technologies used in autonomous vehicles</p>
+                </div>
+                <div
+                    class="bg-gradient-to-br from-arc-green/20 to-arc-navy/30 p-6 rounded-xl border border-arc-green/30 text-center">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-2">Pure Inspiration</h3>
+                    <p class="text-gray-300">Ignite your passion for innovation</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-2xl font-bold text-arc-green mb-6">Only 7 Seats Remaining!</p>
+                <a href="https://forms.gle/RPGErpQM4mWepsdT8" target="_blank" rel="noopener"
+                    class="inline-block bg-arc-green text-arc-dark px-10 py-5 rounded-full font-bold text-xl cta-glow hover:bg-white transition-all">
+                    Secure Your Spot Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 scroll-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <details class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20">
+                    <summary class="text-xl font-bold faq-summary">Do I need prior robotics experience?</summary>
+                    <p class="mt-2 text-gray-300">Basic programming knowledge is helpful, but we'll teach everything
+                        from fundamentals to advanced concepts. Bring enthusiasm and curiosity.</p>
+                </details>
+                <details class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-green/20">
+                    <summary class="text-xl font-bold faq-summary">What if I don't have a laptop?</summary>
+                    <p class="mt-2 text-gray-300">Limited laptops are available on request. Indicate your need in the
+                        registration form and we'll coordinate.</p>
+                </details>
+                <details class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20">
+                    <summary class="text-xl font-bold faq-summary">How are seats allocated?</summary>
+                    <p class="mt-2 text-gray-300">Seats are first-come, first-served with a review to ensure a diverse
+                        mix. Early registration is strongly recommended.</p>
+                </details>
+                <details class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-green/20">
+                    <summary class="text-xl font-bold faq-summary">Is lunch provided?</summary>
+                    <p class="mt-2 text-gray-300">Yes. Lunch and refreshments are included. Please mention any dietary
+                        restrictions in your registration.</p>
+                </details>
+                <details class="bg-arc-navy/30 backdrop-blur-sm p-6 rounded-xl border border-arc-blue/20">
+                    <summary class="text-xl font-bold faq-summary">Can I keep the robotics kit?</summary>
+                    <p class="mt-2 text-gray-300">Kits are for use during the workshop only. You'll receive guidance and
+                        resources to build your own afterward.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-arc-dark py-12 border-t border-arc-navy">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <div class="flex justify-center mb-2">
+                    <img src="./assets/images/logo_1.png" alt="Project ARC logo" class="h-10 w-auto"
+                        onerror="this.src='./assets/images/logo_1.png'">
+                </div>
+                <h3 class="text-2xl font-bold mb-4">
+                    PROJECT <span class="gradient-text">ARC</span>
+                </h3>
+                <p class="text-gray-400 mb-6">Forge the Future of Robotics</p>
+
+                <div class="flex justify-center gap-8 mb-8 flex-wrap">
+                    <a href="mailto:info@projectarc.lk" class="text-arc-blue hover:text-arc-green transition-colors">
+                        info@projectarc.lk
+                    </a>
+                    <a href="tel:+94771234567" class="text-arc-blue hover:text-arc-green transition-colors">
+                        +94 77 123 4567
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-500">
+                    © 2025 Project ARC. All rights reserved. | Kandy, Sri Lanka
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Registration Modal (optional, can be removed if only using Google Form) -->
+    <div id="registration-modal"
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-arc-navy rounded-2xl p-8 max-w-lg w-full border border-arc-blue/30">
+            <h3 class="text-2xl font-bold mb-6">Reserve Your Seat</h3>
+
+            <form id="registration-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Full Name *</label>
+                    <input type="text" required
+                        class="w-full bg-arc-dark border border-arc-blue/30 rounded-lg px-4 py-2 focus:border-arc-blue focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Email *</label>
+                    <input type="email" required
+                        class="w-full bg-arc-dark border border-arc-blue/30 rounded-lg px-4 py-2 focus:border-arc-blue focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Phone Number *</label>
+                    <input type="tel" required
+                        class="w-full bg-arc-dark border border-arc-blue/30 rounded-lg px-4 py-2 focus:border-arc-blue focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Background/Level *</label>
+                    <select required
+                        class="w-full bg-arc-dark border border-arc-blue/30 rounded-lg px-4 py-2 focus:border-arc-blue focus:outline-none">
+                        <option value="">Select your background</option>
+                        <option value="university">University Undergraduate</option>
+                        <option value="pre-university">Pre-University Student</option>
+                        <option value="hobbyist">Hobbyist/Maker</option>
+                        <option value="professional">Industry Professional</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">How did you hear about us?</label>
+                    <input type="text"
+                        class="w-full bg-arc-dark border border-arc-blue/30 rounded-lg px-4 py-2 focus:border-arc-blue focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Any special requirements?</label>
+                    <textarea rows="3"
+                        class="w-full bg-arc-dark border border-arc-blue/30 rounded-lg px-4 py-2 focus:border-arc-blue focus:outline-none"></textarea>
+                </div>
+
+                <div class="flex gap-4 mt-6">
+                    <button type="submit"
+                        class="flex-1 bg-arc-green text-arc-dark py-3 rounded-lg font-bold hover:bg-white transition-colors">
+                        Submit Registration
+                    </button>
+                    <button type="button" onclick="closeRegistration()"
+                        class="flex-1 bg-transparent border border-arc-blue text-arc-blue py-3 rounded-lg font-bold hover:bg-arc-blue hover:text-white transition-colors">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            // Asia/Colombo is +05:30
+            const eventDate = new Date('2025-08-23T09:00:00+05:30').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('countdown').innerHTML = '<p class="text-2xl font-bold text-arc-green">Event Started!</p>';
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Sticky CTA behavior
+        let lastScroll = 0;
+        const stickyCTA = document.getElementById('sticky-cta');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 500 && currentScroll > lastScroll) {
+                stickyCTA.style.transform = 'translateY(0)';
+            } else if (currentScroll < lastScroll || currentScroll < 500) {
+                stickyCTA.style.transform = 'translateY(-100%)';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Registration Modal
+        function openRegistration() {
+            document.getElementById('registration-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRegistration() {
+            document.getElementById('registration-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form submission (modal)
+        document.getElementById('registration-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for registering! We will contact you shortly with confirmation details.');
+            closeRegistration();
+            e.target.reset();
+        });
+
+        // Close modal on background click
+        document.getElementById('registration-modal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                closeRegistration();
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
