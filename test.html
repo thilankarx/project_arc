@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PROJECT ARC: Forge the Future of Robotics — Elite Workshop (Aug 23, 2025)</title>
+    <meta name="description"
+        content="Join Project ARC — a one‑day elite workshop on advanced robotics & control systems. Hands‑on labs, live demos, certificate, and networking. Kandy Innovator Park, Aug 23, 2025." />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="PROJECT ARC: Forge the Future of Robotics — Elite Workshop" />
+    <meta property="og:description"
+        content="Hands‑on robotics & control systems workshop. Aug 23, 2025 | Kandy Innovator Park. Strictly limited to 30 seats." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com/project-arc" />
+    <meta property="og:image"
+        content="https://dummyimage.com/1200x630/0b1020/38bdf8.png&text=PROJECT+ARC+—+Aug+23,+2025" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Optional: Tailwind config for brand accents
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: {
+                            900: '#0B1020', // deep navy/charcoal background
+                            800: '#121832'
+                        },
+                        accent: {
+                            500: '#38bdf8', // electric blue
+                            600: '#0891b2'
+                        },
+                        success: {
+                            500: '#22c55e' // soft green for highlights
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Subtle background grid */
+        .bg-grid {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Reveal-on-scroll utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .revealed {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Focus ring for key interactive elements (safety on dark bg) */
+        .focus-ring:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, .5);
+        }
+
+        /* Print rules: print certificate only */
+        @media print {
+            body * {
+                visibility: hidden !important;
+            }
+
+            #certificate-sheet,
+            #certificate-sheet * {
+                visibility: visible !important;
+            }
+
+            #certificate-sheet {
+                position: absolute;
+                inset: 0;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+
+    <!-- JSON-LD: Event structured data -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "PROJECT ARC: Forge the Future of Robotics",
+    "description": "An Elite Workshop on Advanced Robotics & Control Systems with hands-on labs, live demos, certificate, and networking.",
+    "startDate": "2025-08-23T09:00:00+05:30",
+    "endDate": "2025-08-23T17:30:00+05:30",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Kandy Innovator Park",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kandy",
+        "addressCountry": "LK"
+      }
+    },
+    "maximumAttendeeCapacity": 30,
+    "organizer": {
+      "@type": "Organization",
+      "name": "Project ARC Team",
+      "url": "https://example.com/project-arc"
+    },
+    "image": ["https://dummyimage.com/1200x630/0b1020/38bdf8.png&text=PROJECT+ARC+—+Aug+23,+2025"]
+  }
+  </script>
+</head>
+
+<body class="bg-base-900 text-white antialiased">
+    <noscript>
+        <div class="bg-red-600 text-white text-center p-3">This page uses a little JavaScript for the countdown and form
+            modal. Please enable JavaScript for the full experience.</div>
+    </noscript>
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-40 bg-base-900/80 backdrop-blur border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <a href="#top" class="flex items-center gap-2 focus-ring" aria-label="Project ARC home">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2l9 5-9 5-9-5 9-5Zm9 9l-9 5-9-5" stroke="#38bdf8" stroke-width="1.5" />
+                    <circle cx="12" cy="21" r="2" fill="#22c55e" />
+                </svg>
+                <span class="font-semibold">Project ARC</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm">
+                <a class="hover:text-accent-500 focus-ring" href="#why">Why</a>
+                <a class="hover:text-accent-500 focus-ring" href="#mission">Mission</a>
+                <a class="hover:text-accent-500 focus-ring" href="#agenda">Agenda</a>
+                <a class="hover:text-accent-500 focus-ring" href="#who">Who</a>
+                <a class="hover:text-accent-500 focus-ring" href="#bring">What to Bring</a>
+                <a class="hover:text-accent-500 focus-ring" href="#benefits">Benefits</a>
+                <a class="hover:text-accent-500 focus-ring" href="#faq">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button
+                    class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-accent-500 hover:bg-accent-600 text-base font-semibold focus-ring"
+                    data-open-modal>
+                    Reserve Your Seat
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="top" class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div class="reveal">
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+                        <span class="text-white">PROJECT ARC:</span> <span class="text-accent-500">Forge the Future of
+                            Robotics</span>
+                    </h1>
+                    <p class="mt-4 text-xl text-white/80">An Elite Workshop on Advanced Robotics & Control Systems</p>
+
+                    <ul class="mt-6 space-y-2 text-white/90">
+                        <li><strong>Date:</strong> August 23, 2025 | <span class="whitespace-nowrap">9:00 AM – 5:30
+                                PM</span> (Asia/Colombo)</li>
+                        <li><strong>Location:</strong> Kandy Innovator Park</li>
+                        <li class="text-success-500 font-semibold">Seats: Strictly Limited to 30</li>
+                    </ul>
+
+                    <div class="mt-8 flex flex-wrap items-center gap-3">
+                        <button
+                            class="px-6 py-3 rounded-2xl bg-accent-500 hover:bg-accent-600 text-base font-semibold focus-ring"
+                            data-open-modal aria-label="Open registration form">
+                            Reserve Your Seat
+                        </button>
+                        <a href="#why"
+                            class="px-6 py-3 rounded-2xl ring-1 ring-white/20 hover:ring-white/40 text-base font-semibold focus-ring">Learn
+                            More</a>
+                    </div>
+
+                    <div class="mt-8">
+                        <div class="text-sm uppercase tracking-wider text-white/60">Countdown to kickoff</div>
+                        <div id="countdown" class="mt-2 text-2xl sm:text-3xl font-bold tabular-nums">00d : 00h : 00m :
+                            00s</div>
+                        <div class="mt-2 text-white/70 text-sm">Asia/Colombo time</div>
+                    </div>
+
+                    <div class="mt-6 text-sm text-white/70" aria-live="polite">
+                        <span id="seats-left" class="font-semibold text-success-500">Only 7 seats left!</span>
+                    </div>
+
+                    <div class="mt-8 flex flex-wrap items-center gap-2" aria-label="Mentor teaser">
+                        <span class="text-white/70">Mentors from:</span>
+                        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">Singapore AUV
+                            Challenge</span>
+                        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">ROBOCON</span>
+                        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">China Agricultural Robotics
+                            Competition</span>
+                    </div>
+                </div>
+
+                <!-- Illustration -->
+                <div class="relative reveal">
+                    <div
+                        class="aspect-[4/3] rounded-3xl bg-gradient-to-br from-base-800 to-black ring-1 ring-white/10 p-6 flex items-center justify-center">
+                        <!-- Simple techy SVG -->
+                        <svg viewBox="0 0 360 270" class="w-full h-full max-w-[560px]" role="img"
+                            aria-label="Robotics and control schematic illustration">
+                            <defs>
+                                <linearGradient id="grad" x1="0" x2="1">
+                                    <stop offset="0%" stop-color="#38bdf8" />
+                                    <stop offset="100%" stop-color="#22c55e" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="20" y="20" width="320" height="230" rx="16" fill="none" stroke="url(#grad)"
+                                stroke-width="2" opacity=".5" />
+                            <g fill="none" stroke="#38bdf8" stroke-width="2">
+                                <circle cx="80" cy="90" r="28" />
+                                <path d="M108 90h60" />
+                                <rect x="180" y="70" width="64" height="40" rx="8" />
+                                <path d="M244 90h36" />
+                                <circle cx="300" cy="90" r="10" />
+                            </g>
+                            <g fill="none" stroke="#22c55e" stroke-width="2">
+                                <rect x="60" y="150" width="64" height="40" rx="8" />
+                                <path d="M124 170h60" />
+                                <rect x="184" y="150" width="64" height="40" rx="8" />
+                                <path d="M248 170h60" />
+                                <circle cx="320" cy="170" r="10" />
+                            </g>
+                            <path d="M40 220c40-18 80-18 120 0s80 18 120 0" stroke="#ffffff33" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Matters / Value Proposition -->
+    <section id="why" class="py-16 sm:py-24 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold">Why This Matters</h2>
+            <p class="mt-3 text-white/80">Stop dreaming. <span class="text-success-500 font-semibold">Start
+                    building.</span> In one day, compress months of trial-and-error with expert guidance and
+                battle-tested workflows.</p>
+            <ul class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <li class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">✅ Expert mentorship</li>
+                <li class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">✅ Hands-on labs</li>
+                <li class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">✅ Live demos</li>
+                <li class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">✅ Certificate</li>
+                <li class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">✅ Networking</li>
+                <li class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">✅ Practical frameworks</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Mission Challenge -->
+    <section id="mission" class="py-16 sm:py-24 border-t border-white/10 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold">Your Mission: <span class="text-accent-500">The Line Follower
+                    Sprint Challenge</span></h2>
+            <div class="mt-8 grid md:grid-cols-3 gap-6">
+                <!-- Go Beyond Bang-Bang -->
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 12h8m8 0h-8M12 4v16" stroke="#38bdf8" stroke-width="2" />
+                            <circle cx="12" cy="12" r="3" stroke="#22c55e" stroke-width="2" />
+                        </svg>
+                        <h3 class="text-xl font-semibold">Go Beyond Bang-Bang</h3>
+                    </div>
+                    <p class="mt-3 text-white/80">Move past on/off control. Learn PID tuning and stability intuition
+                        that wins sprints, not just simulations.</p>
+                </div>
+                <!-- Master Your Sensors -->
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="8" rx="2" stroke="#38bdf8" stroke-width="2" />
+                            <path d="M7 18h10" stroke="#22c55e" stroke-width="2" />
+                        </svg>
+                        <h3 class="text-xl font-semibold">Master Your Sensors</h3>
+                    </div>
+                    <p class="mt-3 text-white/80">Extract clean signals, denoise, threshold, and fuse like a pro. Turn
+                        raw reflectance into reliable steering.</p>
+                </div>
+                <!-- Engineer Solutions -->
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 20l6-6 4 4 6-6" stroke="#38bdf8" stroke-width="2" />
+                            <rect x="3" y="3" width="6" height="6" rx="1" stroke="#22c55e" stroke-width="2" />
+                        </svg>
+                        <h3 class="text-xl font-semibold">Engineer Solutions</h3>
+                    </div>
+                    <p class="mt-3 text-white/80">Iterate fast: test loops, analyze errors, and tune for the track you
+                        see — not the one you imagined.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agenda -->
+    <section id="agenda" class="py-16 sm:py-24 border-t border-white/10 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold">Agenda</h2>
+            <div class="mt-8 grid lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <div class="text-sm uppercase tracking-wider text-white/60">Morning</div>
+                    <ul class="mt-3 space-y-3">
+                        <li><span class="font-semibold">09:00</span> — Opening, vision & safety brief</li>
+                        <li><span class="font-semibold">09:30</span> — Control Systems: beyond bang-bang (PID primer)
+                        </li>
+                        <li><span class="font-semibold">10:45</span> — Sensors & calibration lab</li>
+                        <li><span class="font-semibold">11:30</span> — Quick demo: state machines</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <div class="text-sm uppercase tracking-wider text-white/60">Afternoon</div>
+                    <ul class="mt-3 space-y-3">
+                        <li><span class="font-semibold">13:30</span> — Sprint challenge briefing</li>
+                        <li><span class="font-semibold">14:00</span> — Tuning workshop & practice laps</li>
+                        <li><span class="font-semibold">15:30</span> — Mentor showcases & Q&A</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <div class="text-sm uppercase tracking-wider text-white/60">Evening</div>
+                    <ul class="mt-3 space-y-3">
+                        <li><span class="font-semibold">16:30</span> — Sprint heats & finals</li>
+                        <li><span class="font-semibold">17:15</span> — Awards & next steps</li>
+                        <li><span class="font-semibold">17:30</span> — Close</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Should Attend -->
+    <section id="who" class="py-16 sm:py-24 border-t border-white/10 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold">Who Should Attend</h2>
+            <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">🎓 University Undergraduates</div>
+                <div class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">📘 Pre‑University Students</div>
+                <div class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">🔧 Hobbyists / Makers</div>
+                <div class="p-5 rounded-2xl bg-white/5 ring-1 ring-white/10">🏭 Industry Professionals</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Bring / What We Provide -->
+    <section id="bring" class="py-16 sm:py-24 border-t border-white/10 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold">What to Bring & What We Provide</h2>
+            <div class="mt-8 grid md:grid-cols-2 gap-6">
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <h3 class="text-xl font-semibold">You Bring</h3>
+                    <ul class="mt-3 space-y-2 list-disc list-inside text-white/80">
+                        <li>Laptop with Arduino IDE pre‑installed</li>
+                        <li>Charging adapter & USB cable</li>
+                        <li>Curiosity and a builder’s mindset</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <h3 class="text-xl font-semibold">We Provide</h3>
+                    <ul class="mt-3 space-y-2 list-disc list-inside text-white/80">
+                        <li>Robotics sprint kit (on‑site use)</li>
+                        <li>Mentorship & support</li>
+                        <li>Participation certificate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits -->
+    <section id="benefits" class="py-16 sm:py-24 border-t border-white/10 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold">Key Benefits</h2>
+            <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 ring-1 ring-white/10">
+                    <h3 class="text-lg font-semibold">Elite Network</h3>
+                    <p class="mt-2 text-white/80">Meet top builders and mentors.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 ring-1 ring-white/10">
+                    <h3 class="text-lg font-semibold">Powerful Certificate</h3>
+                    <p class="mt-2 text-white/80">Showcase your skills with credibility.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 ring-1 ring-white/10">
+                    <h3 class="text-lg font-semibold">Real‑World Skills</h3>
+                    <p class="mt-2 text-white/80">Control loops, sensors, and tuning that ship.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 ring-1 ring-white/10">
+                    <h3 class="text-lg font-semibold">Pure Inspiration</h3>
+                    <p class="mt-2 text-white/80">Leave ready to build your next robot.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Placeholder -->
+    <section class="py-16 sm:py-24 border-t border-white/10 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold">What Builders Say</h2>
+            <div class="mt-6 grid md:grid-cols-3 gap-6 text-white/80">
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">“The tuning lab alone was worth it.” —
+                    <span class="text-white">A. Perera</span></div>
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">“Concrete techniques we applied next day.”
+                    — <span class="text-white">S. Fernando</span></div>
+                <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">“Best one‑day robotics sprint I’ve
+                    attended.” — <span class="text-white">D. Silva</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / FAQ / Contact -->
+    <footer id="faq" class="border-t border-white/10 py-16 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div>
+                    <h3 class="text-xl font-semibold">Get in Touch</h3>
+                    <p class="mt-3 text-white/80">Email: <a href="mailto:hello@project-arc.io"
+                            class="text-accent-500 underline">hello@project-arc.io</a></p>
+                    <p class="mt-1 text-white/80">Phone: <a class="text-accent-500 underline"
+                            href="tel:+94770000000">+94 77 000 0000</a></p>
+                    <div class="mt-4 flex gap-3" aria-label="Social proof placeholder">
+                        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">@projectarc</span>
+                        <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">#ForgeTheFuture</span>
+                    </div>
+                    <button class="mt-6 px-5 py-3 rounded-xl bg-accent-500 hover:bg-accent-600 font-semibold focus-ring"
+                        data-open-modal>Reserve Your Seat</button>
+                </div>
+
+                <!-- FAQ -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-xl font-semibold">FAQ</h3>
+                    <div class="mt-4 divide-y divide-white/10" role="list">
+                        <details class="group py-4" role="listitem">
+                            <summary class="cursor-pointer flex items-center justify-between list-none">
+                                <span class="font-medium">Do I need prior experience?</span>
+                                <span class="text-white/50 group-open:rotate-45 transition">+</span>
+                            </summary>
+                            <p class="mt-2 text-white/80">No. We start with fundamentals and scale up. The challenge
+                                fits beginners to advanced builders.</p>
+                        </details>
+                        <details class="group py-4" role="listitem">
+                            <summary class="cursor-pointer flex items-center justify-between list-none">
+                                <span class="font-medium">What if I don’t have a laptop?</span>
+                                <span class="text-white/50 group-open:rotate-45 transition">+</span>
+                            </summary>
+                            <p class="mt-2 text-white/80">We have very limited loaner units and pairing options. Please
+                                indicate your need in the registration form.</p>
+                        </details>
+                        <details class="group py-4" role="listitem">
+                            <summary class="cursor-pointer flex items-center justify-between list-none">
+                                <span class="font-medium">How are seats allocated?</span>
+                                <span class="text-white/50 group-open:rotate-45 transition">+</span>
+                            </summary>
+                            <p class="mt-2 text-white/80">First‑come, first‑confirmed via email. Seats are strictly
+                                capped at 30 to keep the lab experience high‑touch.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-10 text-white/50 text-sm">© <span id="year"></span> Project ARC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA (always visible on mobile; helpful on desktop) -->
+    <div class="fixed inset-x-0 bottom-0 z-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-4">
+            <div
+                class="flex items-center justify-between gap-3 rounded-2xl bg-base-900/90 backdrop-blur ring-1 ring-white/10 p-3">
+                <div class="text-sm">
+                    <div class="font-semibold">Aug 23, 2025 — Kandy Innovator Park</div>
+                    <div class="text-white/70">Limited to 30 seats</div>
+                </div>
+                <button class="px-4 sm:px-6 py-2 rounded-xl bg-accent-500 hover:bg-accent-600 font-semibold focus-ring"
+                    data-open-modal>
+                    Reserve Your Seat
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="modal" class="hidden fixed inset-0 z-50" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="absolute inset-0 bg-black/70" data-close-modal></div>
+        <div class="relative max-w-xl mx-auto mt-16 mb-24 bg-base-900 rounded-2xl ring-1 ring-white/10 p-6 sm:p-8">
+            <div class="flex items-start justify-between gap-4">
+                <h3 id="modal-title" class="text-2xl font-bold">Reserve Your Seat</h3>
+                <button class="p-2 rounded-lg hover:bg-white/5 focus-ring" aria-label="Close"
+                    data-close-modal>&times;</button>
+            </div>
+            <form id="reg-form" class="mt-4 space-y-4" novalidate>
+                <div>
+                    <label for="name" class="block text-sm font-medium">Full name</label>
+                    <input id="name" name="name" type="text" required
+                        class="mt-1 w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-3 py-2 focus:ring-2 focus:ring-accent-500"
+                        placeholder="Your name" />
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium">Email</label>
+                    <input id="email" name="email" type="email" required
+                        class="mt-1 w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-3 py-2 focus:ring-2 focus:ring-accent-500"
+                        placeholder="you@example.com" />
+                </div>
+                <div>
+                    <label for="level" class="block text-sm font-medium">Background / Level</label>
+                    <select id="level" name="level"
+                        class="mt-1 w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-3 py-2 focus:ring-2 focus:ring-accent-500">
+                        <option value="Undergraduate">Undergraduate</option>
+                        <option value="Pre-University">Pre‑University</option>
+                        <option value="Hobbyist/Maker">Hobbyist / Maker</option>
+                        <option value="Industry Professional">Industry Professional</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ref" class="block text-sm font-medium">How did you hear about us? (optional)</label>
+                    <input id="ref" name="ref" type="text"
+                        class="mt-1 w-full rounded-xl bg-white/5 ring-1 ring-white/10 px-3 py-2 focus:ring-2 focus:ring-accent-500"
+                        placeholder="e.g., Friend, Instagram, University" />
+                </div>
+                <div class="flex items-center justify-between gap-4">
+                    <button type="submit"
+                        class="px-5 py-3 rounded-xl bg-accent-500 hover:bg-accent-600 font-semibold focus-ring">Submit
+                        Registration</button>
+                    <button type="button" class="px-5 py-3 rounded-xl ring-1 ring-white/15 hover:bg-white/5 focus-ring"
+                        data-close-modal>Cancel</button>
+                </div>
+            </form>
+
+            <div id="success" class="hidden mt-6 p-4 rounded-xl bg-success-500/10 ring-1 ring-success-500/30">
+                <p class="font-semibold text-success-500">Thanks — you’re on the list!</p>
+                <p class="text-white/80 mt-1">We’ve saved your spot and emailed a confirmation (demo). See you on August
+                    23.</p>
+                <div class="mt-4 flex flex-wrap items-center gap-3">
+                    <button id="download-cert"
+                        class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 focus-ring">Download
+                        your certificate (placeholder)</button>
+                    <a href="#why" class="px-4 py-2 rounded-xl ring-1 ring-white/15 hover:bg-white/5 focus-ring">Learn
+                        more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Certificate Sheet (print placeholder) -->
+    <section id="certificate-sheet" class="hidden p-12 bg-white text-black">
+        <div class="max-w-3xl mx-auto border-4 border-black p-10 text-center">
+            <h2 class="text-3xl font-extrabold tracking-wide">Certificate of Participation</h2>
+            <p class="mt-6 text-lg">This certifies that</p>
+            <p class="mt-2 text-2xl font-bold" id="cert-name">[Your Name]</p>
+            <p class="mt-2">has successfully participated in</p>
+            <p class="mt-2 text-xl font-semibold">PROJECT ARC: Forge the Future of Robotics</p>
+            <p class="mt-2">An Elite Workshop on Advanced Robotics & Control Systems</p>
+            <p class="mt-6">Held at Kandy Innovator Park on August 23, 2025</p>
+            <div class="mt-10 flex justify-between text-left">
+                <div>
+                    <div class="h-10 border-b-2 border-black w-48"></div>
+                    <p class="mt-1">Program Lead</p>
+                </div>
+                <div>
+                    <div class="h-10 border-b-2 border-black w-48"></div>
+                    <p class="mt-1">Organizer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // ==== Helpers ====
+        const $ = (sel, ctx = document) => ctx.querySelector(sel);
+        const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+        // Year footer
+        $('#year').textContent = new Date().getFullYear();
+
+        // Reveal on scroll
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+        }, { threshold: 0.15 });
+        $$('.reveal').forEach(el => io.observe(el));
+
+        // Countdown (Asia/Colombo start)
+        const target = new Date('2025-08-23T09:00:00+05:30');
+        const countdownEl = $('#countdown');
+        function updateCountdown() {
+            const now = new Date();
+            let diff = target - now;
+            if (diff <= 0) {
+                countdownEl.textContent = 'Event is live!';
+                return;
+            }
+            const sec = Math.floor(diff / 1000) % 60;
+            const min = Math.floor(diff / (1000 * 60)) % 60;
+            const hr = Math.floor(diff / (1000 * 60 * 60)) % 24;
+            const day = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const pad = (n) => String(n).padStart(2, '0');
+            countdownEl.textContent = `${pad(day)}d : ${pad(hr)}h : ${pad(min)}m : ${pad(sec)}s`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Modal open/close + focus handling
+        const modal = $('#modal');
+        function openModal() {
+            modal.classList.remove('hidden');
+            $('#name').focus();
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        $$('[data-open-modal]').forEach(btn => btn.addEventListener('click', openModal));
+        $$('#modal [data-close-modal]').forEach(btn => btn.addEventListener('click', closeModal));
+        modal.addEventListener('click', (e) => { if (e.target.matches('[data-close-modal]')) closeModal(); });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+
+        // Registration form (demo only)
+        const form = $('#reg-form');
+        const success = $('#success');
+        const seatsLeftEl = $('#seats-left');
+        // Demo: track remaining seats locally (starts at 7)
+        const kSeats = 'arcSeatsRemaining';
+        function getSeats() { return Number(localStorage.getItem(kSeats) ?? '7'); }
+        function setSeats(n) { localStorage.setItem(kSeats, String(n)); }
+        function renderSeats() { const n = getSeats(); seatsLeftEl.textContent = `Only ${n} seats left!`; }
+        renderSeats();
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = $('#name').value.trim();
+            const email = $('#email').value.trim();
+            if (!name || !email) {
+                alert('Please enter your name and a valid email.');
+                return;
+            }
+            // Simulate submission + seat decrement locally
+            const n = Math.max(0, getSeats() - 1);
+            setSeats(n);
+            renderSeats();
+
+            // Show success, hide form
+            form.classList.add('hidden');
+            success.classList.remove('hidden');
+
+            // Prepare print certificate
+            $('#cert-name').textContent = name;
+            $('#certificate-sheet').classList.remove('hidden');
+        });
+
+        // Certificate button
+        $('#download-cert').addEventListener('click', () => {
+            window.print();
+        });
+
+        // Smooth anchor offset for sticky header
+        $$('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                const id = a.getAttribute('href');
+                if (id.length > 1) {
+                    e.preventDefault();
+                    const el = document.querySelector(id);
+                    if (el) {
+                        const y = el.getBoundingClientRect().top + window.scrollY - 72; // header height offset
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
